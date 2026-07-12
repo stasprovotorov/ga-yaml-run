@@ -1,6 +1,6 @@
 name: My First YAML File
 
-on: workflow_dispatch
+on: push
 
 jobs:
   say-hello:
