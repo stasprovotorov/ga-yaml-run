@@ -1,0 +1,9 @@
+name: My First YAML File
+
+on: push
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Print text in VM console
+      run: echo "Hello from GutHub Action VM!"
