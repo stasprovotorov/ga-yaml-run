@@ -1,0 +1,16 @@
+name: Check Tests
+
+on:
+  push:
+    paths: [test*.py]
+
+jobs:
+  check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show test1.py file content
+        run: cat test1.py
+      - name: Show test2.py file content
+        run: cat test2.py
+      - name: Show test3.py file content
+        run: cat test3.py
