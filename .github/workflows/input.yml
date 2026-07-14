@@ -1,0 +1,30 @@
+name: Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      stringField:
+        description: Input string value
+        type: string
+        default: "Default value"
+        required: true
+
+      selectField:
+        description: Choice value from options
+        type: choice
+        options: [option1, option2, option3]
+        default: option1
+        
+      checkboxField:
+        description: Set checkbox
+        type: boolean
+
+jobs:
+  show-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show inputs
+        run: |
+          echo "String value: ${{ inputs.stringField }}"
+          echo "Select value: ${{ inputs.selectField }}"
+          ehco "Checkbox value: ${{ inputs.checkboxField }}"
