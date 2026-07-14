@@ -14,7 +14,7 @@ on:
         type: choice
         options: [option1, option2, option3]
         default: option1
-        
+
       checkboxField:
         description: Set checkbox
         type: boolean
@@ -27,4 +27,4 @@ jobs:
         run: |
           echo "String value: ${{ inputs.stringField }}"
           echo "Select value: ${{ inputs.selectField }}"
-          ehco "Checkbox value: ${{ inputs.checkboxField }}"
+          echo "Checkbox value: ${{ inputs.checkboxField }}"
