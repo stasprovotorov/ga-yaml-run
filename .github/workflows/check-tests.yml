@@ -8,6 +8,8 @@ jobs:
   check-tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Copy files
+        uses: actions/checkout@v4
       - name: Show test1.py file content
         run: cat test1.py
       - name: Show test2.py file content
