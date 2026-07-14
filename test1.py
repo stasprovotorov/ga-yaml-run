@@ -1,2 +1,2 @@
 def test1():
-    return True
+    return 1
