@@ -1,0 +1,21 @@
+name: Variables
+run-name: Show variable values
+
+on: push
+
+env:
+  VAR_WORKFLOW: "Workflow level value"
+
+jobs:
+  show-variable-values:
+    runs-on: ubuntu-latest
+    env:
+      VAR_JOB: "Job level value"
+    steps:
+      - name: Show variable values
+        env:
+          VAR_STEP: "Step level value"
+        run: |
+          echo "VAR_WORKFLOW = $VAR_WORKFLOW"
+          echo "VAR_JOB = $VAR_JOB"
+          echo "VAR_STEP = $VAR_STEP"
