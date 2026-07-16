@@ -6,8 +6,19 @@ on: push
 jobs:
   show-context-variables:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - name: Show repository variable
         run: echo "NAME = ${{ vars.NAME }}"
       - name: Show repository secret
         run: echo "PASSWORD = ${{ secrets.PASSWORD }}"
+
+      - name: Show production variable
+        run: echo "PROD_VAR = ${{ vars.PROD_VAR }}"
+      - name: Show production secret
+        run: echo "PROD_SECRET = ${{ vars.PROD_SECRET }}"
+
+      - name: Show test environment variable
+        run: echo "TEST_VAR = ${{ vars.TEST_VAR }}"
+      - name: Show test environment secret
+        run: echo "TEST_SECRET = ${{ vars.TEST_SECRET }}"
