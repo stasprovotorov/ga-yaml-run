@@ -1,0 +1,13 @@
+name: Context Variables
+run-name: Show Context Variables
+
+on: push
+
+jobs:
+  show-context-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show repository variable
+        run: echo "NAME = ${{ vars.NAME }}"
+      - name: Show repository secret
+        run: echo "PASSWORD = ${{ secrets.PASSWORD }}"
