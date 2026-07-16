@@ -16,9 +16,9 @@ jobs:
       - name: Show production variable
         run: echo "PROD_VAR = ${{ vars.PROD_VAR }}"
       - name: Show production secret
-        run: echo "PROD_SECRET = ${{ vars.PROD_SECRET }}"
+        run: echo "PROD_SECRET = ${{ secrets.PROD_SECRET }}"
 
       - name: Show test environment variable
         run: echo "TEST_VAR = ${{ vars.TEST_VAR }}"
       - name: Show test environment secret
-        run: echo "TEST_SECRET = ${{ vars.TEST_SECRET }}"
+        run: echo "TEST_SECRET = ${{ secrets.TEST_SECRET }}"
