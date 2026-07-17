@@ -1,0 +1,26 @@
+name: Context Functions
+run-name: Context Functions
+
+on: push
+
+jobs:
+  job-one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep step
+        run: |
+          echo "Sleep step executing: sleep 10"
+          sleep 10
+          echo "Sleep step executed"
+      - name: Cancel step
+        if: ${{ cancelled() }}
+        run: echo "Cancel step executed"
+      - name: Always step
+        if: ${{ always() }}
+        run: echo "Always step executed"
+      - name: Success step
+        if: ${{ success() }}
+        run: echo "Success step executed"
+      - name: Failure step
+        if: ${{ failure() }}
+        run: echo "Failure step executed"
