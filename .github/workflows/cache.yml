@@ -1,0 +1,29 @@
+name: Cache
+run-name: Cache
+
+on: workflow_dispatch
+
+jobs:
+  set-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy repository files
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+      
+      - name: Show Python version
+        run: python3 --version
+
+      - name: Cache pip files
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: pip-file
+
+      - name: Install dependecies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          
