@@ -26,10 +26,12 @@ jobs:
     steps:
       - name: Download file
         uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.FILENAME }}
+          path: .
       - name: Check downloaded file
         run: |
           ls -lah
-          ls -lah ${{ env.FILENAME }}
           cat ${{ env.FILENAME }}
       - name: Update file
         run: echo "Hey, Dude! _m/" > ${{ env.FILENAME }}
