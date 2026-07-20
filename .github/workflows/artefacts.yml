@@ -20,7 +20,7 @@ jobs:
           name: ${{ env.FILENAME }}
           path: ${{ env.FILENAME }}
 
-  update-file:
+  download-update-and-upload-file:
     needs: create-and-upload-file
     runs-on: ubuntu-latest
     steps:
@@ -37,11 +37,6 @@ jobs:
         run: echo "Hey, Dude! _m/" > ${{ env.FILENAME }}
       - name: Check file update
         run: cat ${{ env.FILENAME }}
-
-  upload-file:
-    needs: update-file 
-    runs-on: ubuntu-latest
-    steps:
       - name: Upload file
         uses: actions/upload-artifact@v4
         with:
