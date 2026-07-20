@@ -29,6 +29,7 @@ jobs:
       - name: Check downloaded file
         run: |
           ls -lah
+          ls -lah ${{ env.FILENAME }}
           cat ${{ env.FILENAME }}
       - name: Update file
         run: echo "Hey, Dude! _m/" > ${{ env.FILENAME }}
