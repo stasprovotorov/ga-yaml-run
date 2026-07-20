@@ -1,0 +1,46 @@
+name: Artefacts
+run-name: Artefacts
+
+on: push
+
+env:
+  FILENAME: filename.txt
+
+jobs:
+  create-and-upload-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create and show file
+        run: | 
+          touch ${{ env.FILENAME }}
+          ls -lah
+      - name: Upload file
+        uses: actions/upload-artifact@v3
+        with:
+          name: filename
+          path: ${{ env.FILENAME }}
+
+  update-file:
+    needs: create-and-upload-file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        uses: actions/download-artifact@v3
+      - name: Check downloaded file
+        run: |
+          ls -lah
+          cat ${{ env.FILENAME }}
+      - name: Update file
+        run: echo "Hey, Dude! _m/" > ${{ env.FILENAME }}
+      - name: Check file update
+        run: cat ${{ env.FILENAME }}
+
+  upload-file:
+    needs: update-file 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload file
+        uses: actions/upload-artifact@v3
+        with:
+          name: filename
+          path: ${{ env.FILENAME }}
