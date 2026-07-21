@@ -1,0 +1,14 @@
+name: Matrix
+run-name: Matrix
+
+on: push
+
+jobs:
+  show-matrix-value:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        value: [1, 2, 3]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo ${{ matrix.value }}
