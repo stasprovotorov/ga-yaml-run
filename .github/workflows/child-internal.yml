@@ -1,0 +1,17 @@
+name: Internal Child Workflow
+run-name: Internal Child Workflow
+
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Username"
+        type: string
+        required: true
+
+jobs:
+  call-internal-workflow:
+    uses: ./.github/workflows/parent.yml
+    with: 
+      username: ${{ inputs.username }}
+      
